@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOS Media - Coming Soon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(90deg, #0097b2, #7ed957);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(34, 139, 34, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 123, 255, 0.1) 0%, transparent 50%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .content {
+            text-align: center;
+            z-index: 1;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #22C55E, #FFD700, #007BFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .mission {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .email-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .email-input {
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            width: 100%;
+            max-width: 400px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .email-input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: #FFD700;
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.02);
+        }
+
+        .notify-btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            background: linear-gradient(45deg, #22C55E, #FFD700);
+            color: #0F4C3A;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .notify-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #FFD700;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #FFD700;
+            transform: scale(1.2);
+        }
+
+        .coming-soon-text {
+            font-size: 1rem;
+            opacity: 0.6;
+            margin-top: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .mission {
+                font-size: 1rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <div class="container">
+        <div class="content">
+            <h1 class="logo">JOS MEDIA</h1>
+            <p class="tagline">Premium Caribbean Entertainment</p>
+            
+            <div class="mission">
+                Discover the rich tapestry of Caribbean culture through premium original content, beloved classics, and untold stories. Where authentic Caribbean voices meet world-class entertainment.
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">▶</div>
+                    <h3>Original Series</h3>
+                    <p>Exclusive Caribbean stories</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">★</div>
+                    <h3>Legacy Content</h3>
+                    <p>Nostalgic classics reimagined</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">♪</div>
+                    <h3>Music & Sports</h3>
+                    <p>Culture beyond the screen</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">■</div>
+                    <h3>Docuseries</h3>
+                    <p>Real stories, real impact</p>
+                </div>
+            </div>
+
+            <form class="email-form" id="emailForm">
+                <input 
+                    type="email" 
+                    class="email-input" 
+                    placeholder="Enter your email for exclusive updates"
+                    id="emailInput"
+                    required
+                >
+                <button type="submit" class="notify-btn">Join the Journey</button>
+            </form>
+
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <p class="coming-soon-text">Launching Soon</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('emailInput').value;
+            const button = document.querySelector('.notify-btn');
+            
+            // Simple validation
+            if (email && email.includes('@')) {
+                button.textContent = 'Welcome Aboard!';
+                button.style.background = 'linear-gradient(45deg, #22C55E, #007BFF)';
+                
+                // Store email (in a real app, this would go to your backend)
+                console.log('Email captured:', email);
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    button.textContent = 'Join the Journey';
+                    button.style.background = 'linear-gradient(45deg, #22C55E, #FFD700)';
+                    document.getElementById('emailInput').value = '';
+                }, 2000);
+            } else {
+                alert('Please enter a valid email address');
+            }
+        });
+
+        // Add some interactive animations
+        document.querySelectorAll('.feature').forEach(feature => {
+            feature.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            feature.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
