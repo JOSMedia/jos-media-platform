@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOS Media - Coming Soon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -65,6 +65,13 @@
             background-clip: text;
             margin-bottom: 1rem;
             text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .logo .trademark {
+            font-size: 1.2rem;
+            vertical-align: super;
+            line-height: 1;
         }
 
         .tagline {
@@ -299,7 +306,7 @@
     
     <div class="container">
         <div class="content">
-            <h1 class="logo">JOS MEDIA</h1>
+            <h1 class="logo">JOS MEDIA<span class="trademark">™</span></h1>
             <p class="tagline">See the Stories. Be part of the moment.</p>
             
             <div class="value-proposition">
@@ -375,27 +382,8 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Mailchimp validation script -->
-    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-    
+    <!-- Remove duplicate jQuery and simplify -->
     <script type="text/javascript">
-        // Wait for jQuery and DOM to be ready
-        $(document).ready(function() {
-            // Mailchimp form validation setup
-            window.fnames = new Array(); 
-            window.ftypes = new Array();
-            fnames[0]='EMAIL';ftypes[0]='email';
-            fnames[1]='FNAME';ftypes[1]='text';
-            fnames[2]='LNAME';ftypes[2]='text';
-            fnames[3]='ADDRESS';ftypes[3]='address';
-            fnames[4]='PHONE';ftypes[4]='phone';
-            fnames[5]='BIRTHDAY';ftypes[5]='birthday';
-            fnames[6]='COMPANY';ftypes[6]='text';
-            
-            var $mcj = jQuery.noConflict(true);
-        });
-        
         // Custom form handling for better UX
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('mc-embedded-subscribe-form');
@@ -427,6 +415,21 @@
                     this.style.transform = 'translateY(0) scale(1)';
                 });
             });
+            
+            // Basic email validation (replacing jQuery dependency)
+            const emailInput = document.getElementById('mce-EMAIL');
+            if (emailInput) {
+                emailInput.addEventListener('blur', function() {
+                    const email = this.value;
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    
+                    if (email && !emailRegex.test(email)) {
+                        this.style.borderColor = '#ff4444';
+                    } else {
+                        this.style.borderColor = 'rgba(255,255,255,0.3)';
+                    }
+                });
+            }
         });
     </script>
 </body>
