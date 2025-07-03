@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOS Media - Coming Soon</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <title>JOS Media - Caribbean Stories</title>
     <style>
         * {
             margin: 0;
@@ -14,423 +12,272 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
             background: linear-gradient(90deg, #5de0e6, #004aad);
-            color: #ffffff;
             min-height: 100vh;
-            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .container {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            max-width: 500px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: #e2b808;
             padding: 2rem;
-            position: relative;
-        }
-
-        .background-animation {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(226, 184, 8, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(93, 224, 230, 0.1) 0%, transparent 50%);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .content {
             text-align: center;
-            z-index: 1;
-            max-width: 800px;
-            width: 100%;
+            color: white;
         }
 
         .logo {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             font-weight: bold;
-            background: linear-gradient(45deg, #22C55E, #FFD700, #007BFF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            position: relative;
-        }
-
-        .logo .trademark {
-            font-size: 1.2rem;
-            vertical-align: super;
-            line-height: 1;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .tagline {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #ffffff;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 2.5rem;
+        }
+
+        .headline {
+            font-size: 2rem;
             font-weight: bold;
-            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .value-proposition {
-            font-size: 1.3rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            color: #ffffff;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            font-style: italic;
-        }
-
-        .signup-description {
+        .subtext {
             font-size: 1.1rem;
+            text-align: center;
             margin-bottom: 2rem;
-            color: #ffffff;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
+            color: #666;
+            line-height: 1.8;
         }
 
-        .email-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
+        .form-group {
+            margin-bottom: 1.5rem;
         }
 
-        .email-input {
-            padding: 1rem 1.5rem;
-            font-size: 1.1rem;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 50px;
-            background: rgba(255,255,255,0.1);
-            color: white;
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
             width: 100%;
-            max-width: 400px;
-            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
             transition: all 0.3s ease;
+            background: white;
         }
 
-        .email-input::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
-
-        .email-input:focus {
+        .form-group input:focus,
+        .form-group select:focus {
             outline: none;
-            border-color: #e2b808;
-            background: rgba(255,255,255,0.2);
-            transform: scale(1.02);
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
         }
 
-        .notify-btn {
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            background: linear-gradient(45deg, #22C55E, #FFD700);
-            color: #0F4C3A;
+        .cta-button {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
             border: none;
-            border-radius: 50px;
+            border-radius: 10px;
+            font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
 
-        .notify-btn:hover {
+        .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-bottom: 3rem;
-            width: 100%;
-            max-width: 600px;
+        .cta-button:active {
+            transform: translateY(-1px);
         }
 
-        .feature {
+        .social-proof {
             text-align: center;
-            padding: 1.5rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #888;
         }
 
-        .feature:hover {
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.15);
+        .help-link {
+            text-align: center;
+            margin-top: 1rem;
         }
 
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #e2b808;
-            font-weight: bold;
-        }
-
-        .feature p {
-            color: #ffffff;
-            font-size: 0.95rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            color: rgba(255,255,255,0.7);
+        .help-link a {
+            color: #667eea;
             text-decoration: none;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
 
-        .social-link:hover {
-            color: #e2b808;
-            transform: scale(1.2);
+        .help-link a:hover {
+            text-decoration: underline;
         }
 
-        .coming-soon-text {
-            font-size: 1rem;
-            opacity: 0.6;
-            margin-top: 2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #ffffff;
-        }
-
-        /* Mailchimp response styling */
-        #mce-responses {
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 10px;
             margin-top: 1rem;
             text-align: center;
-        }
-        
-        #mce-error-response {
-            color: #ffffff;
-            background: rgba(255, 68, 68, 0.8);
-            padding: 1rem;
-            border-radius: 10px;
-            margin-top: 1rem;
-            font-weight: bold;
-            font-size: 1.1rem;
-            border: 2px solid #ff4444;
-            box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
-        }
-        
-        #mce-success-response {
-            color: #ffffff !important;
-            background: #e2b808 !important;
-            padding: 1rem;
-            border-radius: 10px;
-            margin-top: 1rem;
-            font-weight: bold;
-            font-size: 1.2rem;
-            border: 2px solid #e2b808;
-            box-shadow: 0 4px 15px rgba(226, 184, 8, 0.4);
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
 
         @media (max-width: 768px) {
-            .logo {
-                font-size: 2.5rem;
-            }
-            
-            .tagline {
-                font-size: 1.4rem;
-            }
-            
-            .value-proposition {
-                font-size: 1.1rem;
-            }
-            
-            .signup-description {
-                font-size: 1rem;
-            }
-            
-            .features {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
             .container {
-                padding: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 2rem;
+                width: 95%;
+                margin: 1rem;
             }
             
-            .tagline {
-                font-size: 1.2rem;
+            .headline {
+                font-size: 1.5rem;
             }
             
-            .email-input {
-                font-size: 1rem;
-                padding: 0.8rem 1.2rem;
-            }
-            
-            .notify-btn {
-                font-size: 1rem;
-                padding: 0.8rem 2rem;
+            .content {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="background-animation"></div>
-    
     <div class="container">
+        <div class="header">
+            <div class="logo">JOS Media<span style="font-size: 0.4em; font-weight: bold; vertical-align: super;">TM</span></div>
+            <div class="tagline">Authentic Caribbean Content</div>
+        </div>
+        
         <div class="content">
-            <h1 class="logo">JOS MEDIA<span class="trademark">™</span></h1>
-            <p class="tagline">See the Stories. Be part of the moment.</p>
+            <h1 class="headline">Caribbean stories, by us, for us</h1>
+            <p class="subtext">Go behind the scenes of Caribbean culture. Get exclusive access to the stories that shape our world.</p>
             
-            <div class="value-proposition">
-                Experience authentic Caribbean stories and culture—delivered to your device.
-            </div>
-
-            <div class="signup-description">
-                Sign up to be the first to access the JOS Media app and exclusive Caribbean content.
-            </div>
-
-            <!-- EMAIL SIGNUP SECTION -->
-            <form action="https://islandviewnetwork.us5.list-manage.com/subscribe/post?u=9ad2567f2281be0587e6ac719&amp;id=debeec464e&amp;f_id=00ebc2e1f0" 
-                  method="post" 
-                  id="mc-embedded-subscribe-form" 
-                  name="mc-embedded-subscribe-form" 
-                  class="email-form validate" 
-                  target="_blank">
-                
-                <input type="email" 
-                       name="EMAIL" 
-                       class="email-input required email" 
-                       id="mce-EMAIL" 
-                       placeholder="Enter your email for exclusive updates"
-                       required>
-                
-                <!-- Mailchimp bot prevention -->
-                <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                    <input type="text" name="b_9ad2567f2281be0587e6ac719_debeec464e" tabindex="-1" value="">
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
                 </div>
                 
-                <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="notify-btn">
-                    Join the Waitlist
-                </button>
+                <div class="form-group">
+                    <label for="location">Where are you connecting from?</label>
+                    <select id="location" name="location" required>
+                        <option value="">Select your location</option>
+                        <option value="usa">United States</option>
+                        <option value="canada">Canada</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="caribbean">Caribbean Islands</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="cta-button">Unlock Exclusive Access</button>
             </form>
-
-            <!-- Success/Error Messages -->
-            <div id="mce-responses" class="clear">
-                <div class="response" id="mce-error-response" style="display: none;"></div>
-                <div class="response" id="mce-success-response" style="display: none;"></div>
+            
+            <div class="success-message" id="successMessage">
+                🎉 Welcome to the JOS family! Check your email for exclusive behind-the-scenes content coming your way.
             </div>
-
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">▶</div>
-                    <h3>Original Series</h3>
-                    <p>Exclusive Caribbean stories</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">■</div>
-                    <h3>Docuseries</h3>
-                    <p>Real stories, real impact</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🎤</div>
-                    <h3>Live Events</h3>
-                    <p>Connect with culture</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">♪</div>
-                    <h3>Music</h3>
-                    <p>Culture beyond the screen</p>
-                </div>
+            
+            <div class="social-proof">
+                Join Caribbean creators and culture lovers worldwide
             </div>
-
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            
+            <div class="help-link">
+                <a href="#" onclick="showHelp()">Need help? Contact support</a>
             </div>
-
-            <p class="coming-soon-text">Launching Soon</p>
         </div>
     </div>
 
-    <!-- Remove duplicate jQuery and simplify -->
-    <script type="text/javascript">
-        // Custom form handling for better UX
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('mc-embedded-subscribe-form');
-            const button = document.getElementById('mc-embedded-subscribe');
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            if (form && button) {
-                form.addEventListener('submit', function(e) {
-                    // Update button during submission
-                    button.textContent = 'Joining...';
-                    button.style.background = 'linear-gradient(45deg, #22C55E, #007BFF)';
-                    button.disabled = true;
-                    
-                    // Reset button after 3 seconds
-                    setTimeout(function() {
-                        button.textContent = 'Join the Waitlist';
-                        button.style.background = 'linear-gradient(45deg, #22C55E, #FFD700)';
-                        button.disabled = false;
-                    }, 3000);
-                });
+            // Get form values
+            const email = document.getElementById('email').value;
+            const location = document.getElementById('location').value;
+            
+            // Basic validation
+            if (!email || !location) {
+                alert('Please fill in all fields');
+                return;
             }
             
-            // Feature hover animations
-            document.querySelectorAll('.feature').forEach(feature => {
-                feature.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px) scale(1.02)';
-                });
+            // Store data (in a real app, this would go to your backend)
+            const userData = {
+                email: email,
+                location: location,
+                timestamp: new Date().toISOString(),
+                segment: 'diaspora'
+            };
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Hide form and show success message
+                document.getElementById('signupForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
                 
-                feature.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
-            });
-            
-            // Basic email validation (replacing jQuery dependency)
-            const emailInput = document.getElementById('mce-EMAIL');
-            if (emailInput) {
-                emailInput.addEventListener('blur', function() {
-                    const email = this.value;
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    
-                    if (email && !emailRegex.test(email)) {
-                        this.style.borderColor = '#ff4444';
-                    } else {
-                        this.style.borderColor = 'rgba(255,255,255,0.3)';
-                    }
-                });
-            }
+                // Log the data (replace with actual API call)
+                console.log('User signed up:', userData);
+                
+                // In a real implementation, you would:
+                // 1. Send data to your email service provider
+                // 2. Add to your CRM with location segmentation
+                // 3. Trigger welcome email sequence
+                
+            }, 1000);
         });
+        
+        function showHelp() {
+            alert('For support, email us at support@josmedia.com or WhatsApp us at +1-xxx-xxx-xxxx');
+        }
     </script>
 </body>
 </html>
