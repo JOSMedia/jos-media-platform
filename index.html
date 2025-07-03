@@ -219,6 +219,11 @@
                     </select>
                 </div>
                 
+                <div class="form-group" id="otherLocationGroup" style="display: none;">
+                    <label for="otherLocation">Please specify your location</label>
+                    <input type="text" id="otherLocation" name="otherLocation" placeholder="Enter your country/region">
+                </div>
+                
                 <button type="submit" class="cta-button">Unlock Exclusive Access</button>
             </form>
             
@@ -243,6 +248,7 @@
             // Get form values
             const email = document.getElementById('email').value;
             const location = document.getElementById('location').value;
+            const otherLocation = document.getElementById('otherLocation').value;
             
             // Basic validation
             if (!email || !location) {
@@ -250,10 +256,19 @@
                 return;
             }
             
+            // If "other" is selected, make sure they specified location
+            if (location === 'other' && !otherLocation.trim()) {
+                alert('Please specify your location');
+                return;
+            }
+            
+            // Determine final location value
+            const finalLocation = location === 'other' ? otherLocation : location;
+            
             // Store data (in a real app, this would go to your backend)
             const userData = {
                 email: email,
-                location: location,
+                location: finalLocation,
                 timestamp: new Date().toISOString(),
                 segment: 'diaspora'
             };
@@ -273,6 +288,21 @@
                 // 3. Trigger welcome email sequence
                 
             }, 1000);
+        });
+        
+        // Show/hide other location field
+        document.getElementById('location').addEventListener('change', function() {
+            const otherLocationGroup = document.getElementById('otherLocationGroup');
+            const otherLocationInput = document.getElementById('otherLocation');
+            
+            if (this.value === 'other') {
+                otherLocationGroup.style.display = 'block';
+                otherLocationInput.required = true;
+            } else {
+                otherLocationGroup.style.display = 'none';
+                otherLocationInput.required = false;
+                otherLocationInput.value = '';
+            }
         });
         
         function showHelp() {
