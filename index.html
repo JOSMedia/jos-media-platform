@@ -87,6 +87,96 @@
             line-height: 1.8;
         }
 
+        /* Mailchimp form styling to match your design */
+        #mc_embed_signup {
+            background: transparent !important;
+            width: 100% !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        }
+
+        #mc_embed_signup h2 {
+            display: none !important;
+        }
+
+        #mc_embed_signup .indicates-required {
+            display: none !important;
+        }
+
+        #mc_embed_signup .mc-field-group {
+            margin-bottom: 1.5rem !important;
+        }
+
+        #mc_embed_signup .mc-field-group label {
+            display: block !important;
+            margin-bottom: 0.5rem !important;
+            font-weight: 600 !important;
+            color: #333 !important;
+            font-size: 1rem !important;
+        }
+
+        #mc_embed_signup .mc-field-group input {
+            width: 100% !important;
+            padding: 1rem !important;
+            border: 2px solid #e0e0e0 !important;
+            border-radius: 10px !important;
+            font-size: 1rem !important;
+            transition: all 0.3s ease !important;
+            background: white !important;
+            box-sizing: border-box !important;
+        }
+
+        #mc_embed_signup .mc-field-group input:focus {
+            outline: none !important;
+            border-color: #667eea !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        #mc_embed_signup .button {
+            width: 100% !important;
+            padding: 1.2rem !important;
+            background: linear-gradient(135deg, #667eea, #764ba2) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 10px !important;
+            font-size: 1.1rem !important;
+            font-weight: bold !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
+        }
+
+        #mc_embed_signup .button:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4) !important;
+        }
+
+        #mc_embed_signup .button:active {
+            transform: translateY(-1px) !important;
+        }
+
+        /* Hide Mailchimp branding */
+        #mc_embed_signup .optionalParent {
+            display: none !important;
+        }
+
+        /* Success/Error messages */
+        #mc_embed_signup .response {
+            background: #d4edda !important;
+            color: #155724 !important;
+            padding: 1rem !important;
+            border-radius: 10px !important;
+            margin-top: 1rem !important;
+            text-align: center !important;
+        }
+
+        #mc_embed_signup #mce-error-response {
+            background: #f8d7da !important;
+            color: #721c24 !important;
+        }
+
         .form-group {
             margin-bottom: 1.5rem;
         }
@@ -98,7 +188,6 @@
             color: #333;
         }
 
-        .form-group input,
         .form-group select {
             width: 100%;
             padding: 1rem;
@@ -109,7 +198,6 @@
             background: white;
         }
 
-        .form-group input:focus,
         .form-group select:focus {
             outline: none;
             border-color: #667eea;
@@ -117,29 +205,21 @@
             transform: translateY(-2px);
         }
 
-        .cta-button {
+        .form-group input {
             width: 100%;
-            padding: 1.2rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
             border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
+            font-size: 1rem;
             transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            background: white;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .cta-button:active {
-            transform: translateY(-1px);
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
         }
 
         .social-proof {
@@ -162,16 +242,6 @@
 
         .help-link a:hover {
             text-decoration: underline;
-        }
-
-        .success-message {
-            display: none;
-            background: #d4edda;
-            color: #155724;
-            padding: 1rem;
-            border-radius: 10px;
-            margin-top: 1rem;
-            text-align: center;
         }
 
         @media (max-width: 768px) {
@@ -201,34 +271,51 @@
             <h1 class="headline">Caribbean stories, by us, for us</h1>
             <p class="subtext">Go behind the scenes of Caribbean culture. Get exclusive access to the stories that shape our world.</p>
             
-            <form id="signupForm">
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email">
-                </div>
-                
-                <div class="form-group">
-                    <label for="location">Where are you connecting from?</label>
-                    <select id="location" name="location" required>
-                        <option value="">Select your location</option>
-                        <option value="usa">United States</option>
-                        <option value="canada">Canada</option>
-                        <option value="uk">United Kingdom</option>
-                        <option value="caribbean">Caribbean Islands</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                
-                <div class="form-group" id="otherLocationGroup" style="display: none;">
-                    <label for="otherLocation">Please specify your location</label>
-                    <input type="text" id="otherLocation" name="otherLocation" placeholder="Enter your country/region">
-                </div>
-                
-                <button type="submit" class="cta-button">Unlock Exclusive Access</button>
-            </form>
-            
-            <div class="success-message" id="successMessage">
-                🎉 Welcome to the JOS family! Check your email for exclusive behind-the-scenes content coming your way.
+            <!-- Mailchimp Form -->
+            <div id="mc_embed_signup">
+                <form action="https://islandviewnetwork.us5.list-manage.com/subscribe/post?u=9ad2567f2281be0587e6ac719&amp;id=debeec464e&amp;f_id=00e9c2e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_self" novalidate="">
+                    <div id="mc_embed_signup_scroll">
+                        <div class="mc-field-group">
+                            <label for="mce-EMAIL">Email Address</label>
+                            <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="" placeholder="Enter your email">
+                        </div>
+                        <div class="mc-field-group">
+                            <label for="mce-FNAME">First Name</label>
+                            <input type="text" name="FNAME" class="text" id="mce-FNAME" value="" placeholder="Enter your first name">
+                        </div>
+                        
+                        <!-- Custom location field -->
+                        <div class="form-group">
+                            <label for="location">Where are you connecting from?</label>
+                            <select id="location" name="location" required>
+                                <option value="">Select your location</option>
+                                <option value="usa">United States</option>
+                                <option value="canada">Canada</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="caribbean">Caribbean Islands</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" id="otherLocationGroup" style="display: none;">
+                            <label for="otherLocation">Please specify your location</label>
+                            <input type="text" id="otherLocation" name="otherLocation" placeholder="Enter your country/region">
+                        </div>
+                        
+                        <div id="mce-responses" class="clear foot">
+                            <div class="response" id="mce-error-response" style="display: none;"></div>
+                            <div class="response" id="mce-success-response" style="display: none;"></div>
+                        </div>
+                        
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" name="b_9ad2567f2281be0587e6ac719_debeec464e" tabindex="-1" value="">
+                        </div>
+                        
+                        <div class="clear foot">
+                            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Unlock Exclusive Access">
+                        </div>
+                    </div>
+                </form>
             </div>
             
             <div class="social-proof">
@@ -242,54 +329,6 @@
     </div>
 
     <script>
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const email = document.getElementById('email').value;
-            const location = document.getElementById('location').value;
-            const otherLocation = document.getElementById('otherLocation').value;
-            
-            // Basic validation
-            if (!email || !location) {
-                alert('Please fill in all fields');
-                return;
-            }
-            
-            // If "other" is selected, make sure they specified location
-            if (location === 'other' && !otherLocation.trim()) {
-                alert('Please specify your location');
-                return;
-            }
-            
-            // Determine final location value
-            const finalLocation = location === 'other' ? otherLocation : location;
-            
-            // Store data (in a real app, this would go to your backend)
-            const userData = {
-                email: email,
-                location: finalLocation,
-                timestamp: new Date().toISOString(),
-                segment: 'diaspora'
-            };
-            
-            // Simulate API call
-            setTimeout(() => {
-                // Hide form and show success message
-                document.getElementById('signupForm').style.display = 'none';
-                document.getElementById('successMessage').style.display = 'block';
-                
-                // Log the data (replace with actual API call)
-                console.log('User signed up:', userData);
-                
-                // In a real implementation, you would:
-                // 1. Send data to your email service provider
-                // 2. Add to your CRM with location segmentation
-                // 3. Trigger welcome email sequence
-                
-            }, 1000);
-        });
-        
         // Show/hide other location field
         document.getElementById('location').addEventListener('change', function() {
             const otherLocationGroup = document.getElementById('otherLocationGroup');
@@ -308,6 +347,43 @@
         function showHelp() {
             alert('For support, email us at support@josmedia.com or WhatsApp us at +1-xxx-xxx-xxxx');
         }
+
+        // Custom form submission handler to include location data
+        document.getElementById('mc-embedded-subscribe-form').addEventListener('submit', function(e) {
+            const location = document.getElementById('location').value;
+            const otherLocation = document.getElementById('otherLocation').value;
+            
+            // Basic validation for location
+            if (!location) {
+                e.preventDefault();
+                alert('Please select your location');
+                return;
+            }
+            
+            // If "other" is selected, make sure they specified location
+            if (location === 'other' && !otherLocation.trim()) {
+                e.preventDefault();
+                alert('Please specify your location');
+                return;
+            }
+            
+            // Log the location data (you can send this to your own database)
+            const finalLocation = location === 'other' ? otherLocation : location;
+            console.log('User location:', finalLocation);
+            
+            // Let Mailchimp handle the email submission
+            // The form will submit normally to Mailchimp
+        });
+
+        // Custom success message override
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if we're returning from Mailchimp with success
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                document.getElementById('mce-success-response').innerHTML = '🎉 Welcome to the JOS family! Check your email for exclusive behind-the-scenes content coming your way.';
+                document.getElementById('mce-success-response').style.display = 'block';
+            }
+        });
     </script>
 </body>
 </html>
