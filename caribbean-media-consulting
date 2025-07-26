@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOS PRODUCTIONS - Caribbean Business Intelligence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-headline {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .hero-subtext {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-text {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .service-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .service-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .service-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .form-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .testimonial {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #667eea;
+            font-style: italic;
+        }
+
+        .app-preview {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .app-preview h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .coming-soon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-headline {
+                font-size: 2rem;
+            }
+            
+            .hero-subtext {
+                font-size: 1.1rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="logo">JOS PRODUCTIONS</div>
+            <h1 class="hero-headline">Caribbean Media Strategy Consulting</h1>
+            <p class="hero-subtext">Helping brands tell authentic Caribbean stories and connect with Caribbean markets. Get strategic media consulting while I build the ultimate Caribbean content platform.</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-number">10+</span>
+                <div class="stat-text">Years studying Caribbean media landscape</div>
+            </div>
+            <div class="stat">
+                <span class="stat-number">15+</span>
+                <div class="stat-text">Caribbean markets analyzed for authentic storytelling</div>
+            </div>
+            <div class="stat">
+                <span class="stat-number">100%</span>
+                <div class="stat-text">Focus on authentic Caribbean narratives</div>
+            </div>
+        </div>
+
+        <div class="two-column">
+            <div class="content-section">
+                <h2 class="section-title">Media Strategy Consulting</h2>
+                <p>Specializing in authentic Caribbean storytelling and market connection strategies. I help brands navigate Caribbean markets and tell genuine Caribbean stories.</p>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Services Offered</h3>
+                <ul class="service-list">
+                    <li>Caribbean market research and audience insights</li>
+                    <li>Authentic Caribbean brand storytelling development</li>
+                    <li>Caribbean diaspora audience engagement strategies</li>
+                    <li>Cultural sensitivity review for Caribbean campaigns</li>
+                    <li>Caribbean media landscape navigation</li>
+                    <li>Content strategy for Caribbean market entry</li>
+                </ul>
+
+                <div class="testimonial">
+                    "Understanding Caribbean markets requires cultural insight, not just data. This approach helps brands connect authentically without appropriation."
+                </div>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">My Approach</h3>
+                <p>Every Caribbean market is unique. I focus on understanding your specific goals and the particular Caribbean audiences you want to reach, then develop strategies that respect culture while achieving business objectives.</p>
+
+                <p style="margin-top: 1rem;"><strong>Available for:</strong> Strategy sessions, market research, content review, ongoing consulting partnerships, and in-person consulting engagements.</p>
+            </div>
+
+            <div class="form-section">
+                <h3 style="margin-bottom: 1.5rem;">Get Exclusive Access</h3>
+                
+                <form id="consultingForm" action="https://islandviewnetwork.us5.list-manage.com/subscribe/post?u=9ad2567f2281be0587e6ac719&amp;id=debeec464e&amp;f_id=00ebc2e1f0" method="post" target="_blank">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" name="EMAIL" id="email" required placeholder="your@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company/Organization</label>
+                        <input type="text" name="COMPANY" id="company" placeholder="Your company name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="challenge">Primary Business Challenge</label>
+                        <select id="challenge" name="CHALLENGE" required>
+                            <option value="">Select your main challenge</option>
+                            <option value="market-entry">Caribbean market entry</option>
+                            <option value="brand-positioning">Authentic brand positioning</option>
+                            <option value="media-strategy">Media strategy development</option>
+                            <option value="competitive-intelligence">Business intelligence needs</option>
+                            <option value="crisis-management">Crisis-proof business models</option>
+                            <option value="other">Other - will specify</option>
+                        </select>
+                    </div>
+                    
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                        <input type="text" name="b_9ad2567f2281be0587e6ac719_debeec464e" tabindex="-1" value="">
+                    </div>
+                    
+                    <button type="submit" class="cta-button">Request Consultation Access</button>
+                </form>
+
+                <div class="success-message" id="successMessage">
+                    ✅ Request submitted! You'll receive exclusive Caribbean business intelligence and consultation details within 24 hours.
+                </div>
+
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    Consultation rates discussed during initial call
+                </p>
+            </div>
+        </div>
+
+        <div class="app-preview">
+            <div class="coming-soon">Coming Soon</div>
+            <h3>Caribbean Content Platform</h3>
+            <p>Building a comprehensive platform for Caribbean stories, insights, and cultural content. Join the waitlist to get early access when we launch.</p>
+            
+            <div style="margin-top: 2rem;">
+                <strong style="color: #667eea;">Early Consulting Clients Get:</strong><br>
+                ✓ Platform beta access when available<br>
+                ✓ Exclusive content and insights<br>
+                ✓ Early adopter benefits<br>
+                ✓ Continued partnership opportunities
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('consultingForm').addEventListener('submit', function(e) {
+            // Let the form submit naturally to Mailchimp, but show success message
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'block';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
